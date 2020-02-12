@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/styles/reset";
+@import "./assets/styles/flex";
+@import "./assets/styles/position";
+@import "./assets/styles/fonts";
+
+html {
+  font-size: 10px;
+  font-family: "Nexa";
+  scroll-behavior: smooth;
+}
+
+.routeContainer {
+  position: relative;
+
+  & > * {
+    display: block;
+  }
+}
+
+.container {
+  width: 1640px;
+  height: 100%;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1700px) {
+    width: 100%;
+    padding: 0 30px;
+  }
+}

@@ -1,0 +1,16 @@
+<section class="os-works">
+  <div class="container">
+    <h2 class="os-works__title">Works</h2>
+    <ul class="os-works__list flex-space-btw">
+      <ng-container *ngFor="let work of works">
+        <li
+          class="os-works__item {{ work.resolution }}"
+          routerLink="/works/detailed/{{ work.id }}"
+        >
+          <img src="{{ work.image }}" alt="" />
+          <p>{{ work.title }}</p>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</section>

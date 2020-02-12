@@ -1,0 +1,10 @@
+<section class="os-works-with">
+  <div class="container">
+    <h2 class="os-works-with__title">We work with</h2>
+    <ul class="os-works-with__list flex-center-x2">
+      <li class="os-works-with__list__item" *ngFor="let logo of logos">
+        <img src="{{ logo.image }}" alt="" />
+      </li>
+    </ul>
+  </div>
+</section>

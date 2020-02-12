@@ -1,0 +1,37 @@
+<section class="os-works">
+  <div class="container">
+    <div class="os-works__content flex-space-btw">
+      <div class="os-works__wrapper">
+        <h3 class="os-works__title large">Resort Kokhta-Mitarbi</h3>
+        <p class="os-works__text">
+          Kokhta-Mitarbi is a resort with the unique natural and climatic
+          conditions. This area attracts the visitors during all four seasons
+          and is a perfect place for family vacations, hiking, and skiing. The
+          Project itself includes the construction of international standard
+          hotels and residential apartments.
+        </p>
+      </div>
+      <h5 class="os-works__title small">
+        Brand Identity, Industrial/Product Design
+      </h5>
+    </div>
+    <ul class="os-works__list flex-space-btw">
+      <li
+        *ngFor="let work of project.data"
+        class="os-works__list__item  {{ work.resolution }}"
+      >
+        <img src="{{ work.image }}" alt="" *ngIf="work.image" />
+        <video src="" *ngIf="work.video"></video>
+        <p
+          *ngIf="work.title"
+          class="os-works__list__text {{ work.title.type }}"
+        >
+          {{ work.title.text }}
+        </p>
+      </li>
+    </ul>
+    <div class="os-works__next" routerLink="/works/detailed/{{ project.next }}">
+      NEXT PROJECT
+    </div>
+  </div>
+</section>

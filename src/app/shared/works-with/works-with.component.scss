@@ -1,0 +1,31 @@
+.os {
+  &-works-with {
+    width: 100%;
+    padding: 43px 0 90px 0;
+    background-color: #ffffff;
+
+    &__title {
+      color: #707070;
+      font-weight: bold;
+      font-size: 4.4rem;
+      line-height: 5.5rem;
+    }
+
+    &__list {
+      width: 100%;
+      padding-top: 32px;
+      flex-wrap: wrap;
+
+      &__item {
+        height: auto;
+        width: 257px;
+        padding: 0 5px;
+
+        & img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}
