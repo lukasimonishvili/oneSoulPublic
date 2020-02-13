@@ -8,9 +8,11 @@ import { AppComponent } from "./app.component";
 import { HomeComponent } from './home/home.component';
 import { WorksComponent } from './works/works.component';
 import { WorksDetailedComponent } from './works-detailed/works-detailed.component';
+import { PeopleComponent } from './people/people.component';
+import { ServicesComponent } from './services/services.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, WorksComponent, WorksDetailedComponent],
+  declarations: [AppComponent, HomeComponent, WorksComponent, WorksDetailedComponent, PeopleComponent, ServicesComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

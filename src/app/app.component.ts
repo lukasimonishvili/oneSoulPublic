@@ -14,18 +14,21 @@ import {
   styleUrls: ["./app.component.scss"],
   animations: [
     trigger("routeAnimation", [
-      transition("1 <=> 2, 1 <=> 3, 2 <=> 3", [
-        style({ height: "!" }),
-        query(":enter", style({ opacity: "0" })),
-        // query(
-        //   ":enter, :leave",
-        //   style({ position: "absolute", top: 0, left: 0, right: 0 })
-        // ),
-        group([
-          query(":leave", [animate("0s", style({ opacity: "0" }))]),
-          query(":enter", [animate("0.5s", style({ opacity: "1" }))])
-        ])
-      ])
+      transition(
+        "1 <=> 2, 1 <=> 3, 2 <=> 3, 3 <=> 3, 1 <=> 4, 2 <=> 4, 3 <=> 4, 1 <=> 5, 2 <=> 5, 3 <=> 5, 4 <=> 5",
+        [
+          style({ height: "!" }),
+          query(":enter", style({ opacity: "0" })),
+          // query(
+          //   ":enter, :leave",
+          //   style({ position: "absolute", top: 0, left: 0, right: 0 })
+          // ),
+          group([
+            query(":leave", [animate("0s", style({ opacity: "0" }))]),
+            query(":enter", [animate("0.5s", style({ opacity: "1" }))])
+          ])
+        ]
+      )
 
       // transition("2 => 1", [
       //   style({ height: "!" }),

@@ -4,6 +4,8 @@ import { Routes, RouterModule } from "@angular/router";
 import { WorksComponent } from "./works/works.component";
 import { HomeComponent } from "./home/home.component";
 import { WorksDetailedComponent } from "./works-detailed/works-detailed.component";
+import { PeopleComponent } from "./people/people.component";
+import { ServicesComponent } from "./services/services.component";
 
 const routes: Routes = [
   {
@@ -20,6 +22,16 @@ const routes: Routes = [
     path: "works/detailed/:id",
     component: WorksDetailedComponent,
     data: { depth: 3 }
+  },
+  {
+    path: "people",
+    component: PeopleComponent,
+    data: { depth: 4 }
+  },
+  {
+    path: "services",
+    component: ServicesComponent,
+    data: { depth: 5 }
   }
 ];
 

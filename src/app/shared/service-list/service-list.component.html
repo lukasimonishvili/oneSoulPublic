@@ -1,0 +1,27 @@
+<section class="os-services">
+  <div class="container">
+    <h2 class="os-services__title">
+      We do work. <br />
+      You stay focused on your customers
+    </h2>
+    <ul class="os-services__list flex-center">
+      <li
+        class="os-services__list__item"
+        *ngFor="let service of services"
+        [style.background-color]="service.colors.background"
+        [style.color]="service.colors.text"
+      >
+        <h5 class="os-services__list__title">{{ service.title }}</h5>
+        <ul class="os-services__features">
+          <li
+            class="os-services__features__item"
+            *ngFor="let feature of service.features"
+          >
+            {{ feature }}
+          </li>
+        </ul>
+        <div class="os-services__button">{{ service.button }}</div>
+      </li>
+    </ul>
+  </div>
+</section>

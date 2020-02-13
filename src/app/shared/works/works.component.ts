@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
   selector: "app-works-shared",
@@ -6,6 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./works.component.scss"]
 })
 export class WorksComponent implements OnInit {
+  @Input() theme: "dark" | "light";
   private works: Array<any> = [
     {
       id: 1,

@@ -1,0 +1,60 @@
+.os {
+  &-services {
+    width: 100%;
+    padding-top: 50px;
+
+    &__title {
+      font-size: 6.4rem;
+      line-height: 79px;
+      font-weight: bold;
+      max-width: 743px;
+    }
+
+    &__list {
+      width: 100%;
+      margin-top: 70px;
+      flex-wrap: wrap;
+
+      &__item {
+        width: 484px;
+        margin-right: 94px;
+        padding: 30px;
+
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+
+      &__title {
+        font-size: 2.4rem;
+        line-height: 2.9px;
+        font-weight: bold;
+      }
+    }
+
+    &__features {
+      padding-top: 40px;
+      padding-left: 30px;
+
+      &__item {
+        font-size: 2.4rem;
+        line-height: 4rem;
+        font-weight: 300;
+      }
+    }
+
+    &__button {
+      width: 100%;
+      padding-top: 100px;
+      text-align: end;
+      font-size: 1.8rem;
+      line-height: 2.3rem;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

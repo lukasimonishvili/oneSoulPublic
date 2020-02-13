@@ -9,7 +9,7 @@ import { ActivatedRoute } from "@angular/router";
 export class WorksDetailedComponent implements OnInit {
   private id: string;
   private project: any = {
-    next: +this.id + 1,
+    next: 0,
     data: [
       {
         image: "../../assets/img/detailed-1.png",
@@ -59,7 +59,7 @@ export class WorksDetailedComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(route => {
       this.id = route["params"].id;
-      console.log(this.id);
+      this.project.next = +this.id + 1;
     });
   }
 }

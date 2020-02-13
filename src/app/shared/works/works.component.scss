@@ -2,7 +2,14 @@
   &-works {
     width: 100%;
     padding: 47px 0 70px 0;
-    background-color: #f7f7f7;
+
+    &.dark {
+      background-color: #f7f7f7;
+    }
+
+    &.light {
+      background-color: #ffffff;
+    }
 
     &__title {
       color: #000000;
