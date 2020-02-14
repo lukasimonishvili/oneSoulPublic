@@ -7,10 +7,26 @@
       width: 100%;
       flex-wrap: wrap;
 
+      @media screen and (max-width: 1700px) {
+        justify-content: space-around;
+      }
+
       &__item {
         width: 513px;
         margin-right: 50px;
         padding-bottom: 65px;
+
+        @media screen and (max-width: 1700px) {
+          margin-right: 0;
+        }
+
+        @media screen and (max-width: 573px) {
+          width: 100%;
+        }
+
+        @media screen and (max-width: 450px) {
+          padding-bottom: 30px;
+        }
 
         &:nth-child(3n) {
           margin-right: 0;
@@ -20,6 +36,10 @@
           width: 100%;
           height: auto;
           padding-bottom: 17px;
+
+          @media screen and (max-width: 450px) {
+            padding-bottom: 5px;
+          }
         }
 
         & p {

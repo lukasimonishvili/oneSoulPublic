@@ -62,7 +62,7 @@
         }
 
         & p {
-          max-width: 50%;
+          max-width: 90%;
           padding-top: 30px;
 
           &.bold {
@@ -91,6 +91,35 @@
 
       &:hover {
         text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1177px) {
+  .os-works {
+    &__title {
+      &.small {
+        display: none;
+      }
+    }
+
+    &__wrapper {
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .os-works {
+    &__list {
+      &__item {
+        padding-bottom: 30px;
+      }
+
+      &__text {
+        padding-top: 10px !important;
       }
     }
   }

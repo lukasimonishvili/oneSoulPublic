@@ -8,6 +8,18 @@ html {
   font-size: 10px;
   font-family: "Nexa";
   scroll-behavior: smooth;
+
+  @media screen and (max-width: 1220px) {
+    font-size: 9px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 7px;
+  }
+
+  @media screen and (max-width: 450px) {
+    font-size: 5px;
+  }
 }
 
 .routeContainer {

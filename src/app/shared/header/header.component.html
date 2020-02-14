@@ -1,7 +1,15 @@
 <header class="os-header">
   <div class="container flex-space-btw">
-    <div class="os-header__hi">Hi 👋</div>
-    <nav class="os-header__navigation flex-center">
+    <div class="os-header__hi">
+      <span *ngIf="hi">
+        <span style="color: #114995">{{ hiCount }}</span> HI's
+      </span>
+      <span (click)="sayHi()" *ngIf="!hi">Hi</span> 👋
+    </div>
+    <nav
+      class="os-header__navigation flex-center"
+      [ngClass]="{ 'os-header__navigation__visible': isNavigationOpen }"
+    >
       <div class="os-header__navigation__item" routerLink="/works">WORKS</div>
       <div class="os-header__navigation__item" routerLink="/services">
         SERVICES
@@ -25,5 +33,14 @@
         <img src="../../../assets/img/social-v.svg" alt="" />
       </li>
     </ul>
+    <div
+      class="os-header__burger relative"
+      (click)="toggleNavigation()"
+      [ngClass]="{ 'os-header__burger__expanded': isNavigationOpen }"
+    >
+      <div class="os-header__burger__item absolute"></div>
+      <div class="os-header__burger__item absolute"></div>
+      <div class="os-header__burger__item absolute"></div>
+    </div>
   </div>
 </header>

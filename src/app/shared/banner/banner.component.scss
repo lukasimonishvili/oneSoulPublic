@@ -46,3 +46,36 @@
     }
   }
 }
+
+@media screen and (max-width: 1177px) {
+  .os-banner {
+    &__img {
+      height: 100vh;
+    }
+
+    &__wrapper {
+      width: 100%;
+      max-width: none;
+    }
+
+    &__title {
+      text-align: center;
+
+      &.small {
+        display: none;
+      }
+    }
+
+    &__text {
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .os-banner {
+    &__img {
+      height: 400px;
+    }
+  }
+}
