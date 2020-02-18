@@ -6,6 +6,7 @@ import { HomeComponent } from "./home/home.component";
 import { WorksDetailedComponent } from "./works-detailed/works-detailed.component";
 import { PeopleComponent } from "./people/people.component";
 import { ServicesComponent } from "./services/services.component";
+import { ContactComponent } from "./contact/contact.component";
 
 const routes: Routes = [
   {
@@ -32,6 +33,11 @@ const routes: Routes = [
     path: "services",
     component: ServicesComponent,
     data: { depth: 5 }
+  },
+  {
+    path: "contact",
+    component: ContactComponent,
+    data: { depth: 6 }
   }
 ];
 
