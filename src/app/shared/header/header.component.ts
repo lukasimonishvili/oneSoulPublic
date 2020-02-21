@@ -26,5 +26,6 @@ export class HeaderComponent implements OnInit {
 
   toggleNavigation() {
     this.isNavigationOpen = !this.isNavigationOpen;
+    console.log(this.isNavigationOpen);
   }
 }

@@ -4,6 +4,14 @@
     height: 193px;
     background: #ffffff;
 
+    &__logo {
+      &__hidden {
+        height: 50px;
+        width: auto;
+        display: none;
+      }
+    }
+
     &__hi {
       font-size: 1.8rem;
       line-height: 2.3rem;
@@ -115,6 +123,12 @@
   .os-header {
     position: relative;
 
+    &__logo {
+      &__hidden {
+        display: block;
+      }
+    }
+
     &__navigation {
       position: absolute;
       width: calc(100% - 90px);
@@ -148,6 +162,12 @@
 @media screen and (max-width: 450px) {
   .os-header {
     height: 50px;
+
+    &__logo {
+      &__hidden {
+        height: 30px;
+      }
+    }
 
     &__navigation {
       &__item {

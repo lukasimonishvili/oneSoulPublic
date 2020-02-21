@@ -7,7 +7,8 @@
           class="os-works__item {{ work.resolution }}"
           routerLink="/works/detailed/{{ work.id }}"
         >
-          <img src="{{ work.image }}" alt="" />
+          <!-- <img src="{{ work.image }}" alt="" /> -->
+          <div class="img" [ngStyle]="{'background-image': 'url(' + work.image + ')'}"></div>
           <p>{{ work.title }}</p>
         </li>
       </ng-container>

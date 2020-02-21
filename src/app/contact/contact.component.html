@@ -42,7 +42,7 @@
             class="os-contact__tabs__error"
             [ngClass]="{ 'os-contact__tabs__error__visible': !services.length }"
           >
-            * tab selection is required
+            * service selection is required
           </div>
         </div>
         <div class="os-contact__form__wrapper">
@@ -121,10 +121,14 @@
         <div class="os-contact__slider__wrapper absolute flex">
           <div
             class="os-contact__slider__slide"
-            [ngClass]="{ visible: i == activeSlideIndex }"
             *ngFor="let slide of slider; let i = index"
+            [ngClass]="{ visible: i == activeSlideIndex }"
           >
-            <img src="{{ slide.image }}" alt="" />
+            <div
+              class="img"
+              [ngStyle]="{ 'background-image': 'url(' + slide.image + ')' }"
+            ></div>
+            <!-- <img src="{{ slide.image }}" alt="" /> -->
             <span> // {{ slide.text }}</span>
           </div>
           <div

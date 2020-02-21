@@ -60,6 +60,8 @@ export class WorksDetailedComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(route => {
       this.id = route["params"].id;
       this.project.next = +this.id + 1;
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      console.log("eshkere", this.id);
     });
   }
 }

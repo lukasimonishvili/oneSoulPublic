@@ -8,11 +8,13 @@
       <div class="os-footer__contacts flex-center">
         <div class="os-footer__wrapper">
           <span class="os-footer__label">SEND US MESSAGE:</span>
-          <span class="os-footer__info">info@onesoul.io</span>
+          <span class="os-footer__info" (click)="senMail('info@onesoul.io')">info@onesoul.io</span>
         </div>
         <div class="os-footer__wrapper">
           <span class="os-footer__label">CALL US:</span>
-          <span class="os-footer__info">+995595087073</span>
+          <span class="os-footer__info" (click)="PhoneCall(+995595087073)">
+            +995595087073
+          </span>
         </div>
       </div>
     </div>

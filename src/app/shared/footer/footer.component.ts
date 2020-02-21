@@ -12,4 +12,12 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
   }
 
+  PhoneCall(phoneNumber){
+    window.open(`tel:${phoneNumber}`);
+  }
+
+  senMail(mail){
+    window.open(`mailto:${mail}`);
+  }
+
 }
