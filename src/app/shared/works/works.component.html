@@ -4,11 +4,14 @@
     <ul class="os-works__list flex-space-btw">
       <ng-container *ngFor="let work of works">
         <li
-          class="os-works__item {{ work.resolution }}"
+          class="os-works__item {{ work.image.resolution }}"
           routerLink="/works/detailed/{{ work.id }}"
         >
           <!-- <img src="{{ work.image }}" alt="" /> -->
-          <div class="img" [ngStyle]="{'background-image': 'url(' + work.image + ')'}"></div>
+          <div
+            class="img"
+            [ngStyle]="{ 'background-image': 'url(' + work.image.url + ')' }"
+          ></div>
           <p>{{ work.title }}</p>
         </li>
       </ng-container>

@@ -8,12 +8,14 @@
       <div class="os-footer__contacts flex-center">
         <div class="os-footer__wrapper">
           <span class="os-footer__label">SEND US MESSAGE:</span>
-          <span class="os-footer__info" (click)="senMail('info@onesoul.io')">info@onesoul.io</span>
+          <span class="os-footer__info" (click)="senMail(data.email)">{{
+            data.email
+          }}</span>
         </div>
         <div class="os-footer__wrapper">
           <span class="os-footer__label">CALL US:</span>
-          <span class="os-footer__info" (click)="PhoneCall(+995595087073)">
-            +995595087073
+          <span class="os-footer__info" (click)="PhoneCall(data.phone)">
+            {{ data.phone }}
           </span>
         </div>
       </div>
@@ -26,13 +28,25 @@
         <span class="os-footer__text">Sitemap</span>
       </div>
       <div class="os-footer__socials">
-        <a target="_blank" href="#" class="os-footer__socials__item">
+        <a
+          target="_blank"
+          href="{{ data.socials.facebook }}"
+          class="os-footer__socials__item"
+        >
           <img src="../../../assets/img/social-f.svg" alt="" />
         </a>
-        <a target="_blank" href="#" class="os-footer__socials__item">
+        <a
+          target="_blank"
+          href="{{ data.socials.instagram }}"
+          class="os-footer__socials__item"
+        >
           <img src="../../../assets/img/social-i.svg" alt="" />
         </a>
-        <a target="_blank" href="#" class="os-footer__socials__item">
+        <a
+          target="_blank"
+          href="{{ data.socials.vimeo }}"
+          class="os-footer__socials__item"
+        >
           <img src="../../../assets/img/social-v.svg" alt="" />
         </a>
       </div>

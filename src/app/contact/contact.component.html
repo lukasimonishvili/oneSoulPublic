@@ -132,10 +132,12 @@
             <span> // {{ slide.text }}</span>
           </div>
           <div
+            *ngIf="slider.length > 1"
             class="os-contact__slider__arrow absolute left"
             (click)="prev()"
           ></div>
           <div
+            *ngIf="slider.length > 1"
             class="os-contact__slider__arrow absolute right"
             (click)="next()"
           ></div>
@@ -143,29 +145,26 @@
       </div>
     </div>
     <div class="os-contact__wrapper">
-      <h2 class="os-contact__title">Want to share some?</h2>
+      <h2 class="os-contact__title">{{ contact.title }}</h2>
       <p class="os-contact__text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
+        {{ contact.text }}
       </p>
 
       <div class="os-contact__info flex-center">
         <div class="os-contact__info__wrapper address">
           <span class="os-contact__text bold">Address</span>
           <span class="os-contact__text"
-            >Keas 69 Str. 15234, <br />
-            Chalandri Athens, <br />
-            Greece</span
+            >{{ contact.address.address }}, <br />
+            {{ contact.address.city }}, <br />
+            {{ contact.address.country }}</span
           >
         </div>
         <div class="os-contact__info__wrapper phone">
           <span class="os-contact__text bold">Phone</span>
           <span class="os-contact__text"
-            >+30-2106019311 (landline)<br />
-            +30-6977664062 (mobile phone) <br />
-            +30-2106398905 (fax)</span
+            >{{ contact.phone.landline }} (landline)<br />
+            {{ contact.phone.mobile }} (mobile phone) <br />
+            {{ contact.phone.fax }} (fax)</span
           >
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ContactService } from "../angular-services/contact/contact.service";
 
 @Component({
   selector: "app-contact",
@@ -9,43 +10,44 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class ContactComponent implements OnInit {
   contactForm: FormGroup;
   services: Array<string> = [];
-  unselectedServices: Array<string> = [
-    "Video production",
-    "UX Design",
-    "Motion Graphics",
-    "Graphics Design",
-    "UI Design",
-    "Documentary Filming"
-  ];
+  contact: any = {
+    title: "",
+    text: "",
+    address: {
+      address: "",
+      city: "",
+      country: ""
+    },
+    phone: {
+      landline: "",
+      mobile: "",
+      fax: ""
+    }
+  };
+  unselectedServices: Array<string> = [];
   activeSlideIndex: number = 0;
   autoPlay;
-  slider: Array<any> = [
-    {
-      image: "../../assets/img/slide-1.png",
-      text: "Best bars and wine",
-      link: null
-    },
-    {
-      image:
-        "https://theamericangenius.com/wp-content/uploads/2012/10/twitter-cover.jpg",
-      text: "test slide 1",
-      link: null
-    },
-    {
-      image:
-        "https://www.bestcoverpix.com/wp-content/uploads/2013/09/Love-cover-448202-copy.jpg",
-      text: "test slide 2",
-      link: null
-    }
-  ];
+  slider: Array<any> = [];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private contactService: ContactService
+  ) {}
 
   ngOnInit() {
+    this.fetchContactData();
     this.createContactForm();
-    this.autoPlay = setInterval(() => {
-      this.next();
-    }, 3000);
+  }
+
+  fetchContactData() {
+    this.contactService.fetchContactData().subscribe(response => {
+      this.slider = response["slider"];
+      this.unselectedServices = response["services"];
+      this.contact = response;
+      this.autoPlay = setInterval(() => {
+        this.next();
+      }, 3000);
+    });
   }
 
   createContactForm() {
@@ -71,14 +73,17 @@ export class ContactComponent implements OnInit {
   }
 
   onContactSubmit() {
-    if (this.contactForm.invalid) {
+    if (this.contactForm.invalid || !this.services.length) {
       return;
     }
 
-    if (this.contactForm.valid) {
+    if (this.contactForm.valid && this.services.length) {
       let payload = this.contactForm.value;
       payload = { ...payload, services: this.services };
-      console.log("...data...", payload);
+
+      this.contactService.sendMessage(payload).subscribe(response => {
+        console.log(response);
+      });
     }
   }
 

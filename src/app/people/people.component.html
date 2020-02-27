@@ -1,7 +1,11 @@
 <section class="os-people">
   <div class="container">
     <ul class="os-people__list flex-center">
-      <li class="os-people__list__item" *ngFor="let person of people">
+      <li
+        [ngStyle]="{ order: person.order }"
+        class="os-people__list__item"
+        *ngFor="let person of people"
+      >
         <img src="{{ person.image }}" alt="" />
         <p class="full-name">{{ person.fullName }}</p>
         <p>{{ person.position }}</p>

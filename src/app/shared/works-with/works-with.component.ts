@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { WorksService } from "../../angular-services/works/works.service";
 
 @Component({
   selector: "app-works-with",
@@ -6,20 +7,17 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./works-with.component.scss"]
 })
 export class WorksWithComponent implements OnInit {
-  private logos: Array<any> = [
-    { image: "../../../assets/img/logo-1.png" },
-    { image: "../../../assets/img/logo-2.png" },
-    { image: "../../../assets/img/logo-3.png" },
-    { image: "../../../assets/img/logo-4.png" },
-    { image: "../../../assets/img/logo-5.png" },
-    { image: "../../../assets/img/logo-3.png" },
-    { image: "../../../assets/img/logo-5.png" },
-    { image: "../../../assets/img/logo-4.png" },
-    { image: "../../../assets/img/logo-2.png" },
-    { image: "../../../assets/img/logo-1.png" }
-  ];
+  private logos: any = [];
 
-  constructor() {}
+  constructor(private worksSrvice: WorksService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.fetchWorksWithdata();
+  }
+
+  fetchWorksWithdata() {
+    this.worksSrvice.fetchWorksWitchData().subscribe(response => {
+      this.logos = response;
+    });
+  }
 }

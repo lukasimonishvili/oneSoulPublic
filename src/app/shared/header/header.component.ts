@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { HeaderService } from "../../angular-services/header/header.service";
 
 @Component({
   selector: "app-header",
@@ -7,25 +8,38 @@ import { Component, OnInit } from "@angular/core";
 })
 export class HeaderComponent implements OnInit {
   private hi: boolean = JSON.parse(window.localStorage.getItem("hi")) || false;
-  private hiCount: number;
+  private hiCount: any = 0;
+  private socials: any = {
+    facebook: "",
+    instagram: "",
+    vimeo: ""
+  };
   private isNavigationOpen: boolean = false;
 
-  constructor() {}
+  constructor(private headerService: HeaderService) {}
 
   ngOnInit() {
-    this.hiCount = 1;
+    this.fetchHeaderData();
+  }
+
+  fetchHeaderData() {
+    this.headerService.fetchHeaderData().subscribe(response => {
+      this.hiCount = response["hi"].value;
+      this.socials = response["socials"];
+    });
   }
 
   sayHi() {
     if (!this.hi) {
-      this.hiCount = this.hiCount + 1;
-      window.localStorage.setItem("hi", JSON.stringify(true));
-      this.hi = JSON.parse(window.localStorage.getItem("hi"));
+      this.headerService.sayHi().subscribe(response => {
+        window.localStorage.setItem("hi", JSON.stringify(true));
+        this.hi = true;
+        this.hiCount = response;
+      });
     }
   }
 
   toggleNavigation() {
     this.isNavigationOpen = !this.isNavigationOpen;
-    console.log(this.isNavigationOpen);
   }
 }

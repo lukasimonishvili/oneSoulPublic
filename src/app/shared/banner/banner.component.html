@@ -1,15 +1,16 @@
 <section class="os-banner">
   <div class="container">
-    <div class="os-banner__img"></div>
+    <div
+      class="os-banner__img"
+      [ngStyle]="{ 'background-image': 'url(' + banner.image + ')' }"
+    ></div>
     <div class="os-banner__content flex-space-btw">
       <div class="os-banner__wrapper">
-        <h3 class="os-banner__title large">Resort Kokhta-Mitarbi</h3>
+        <h3 class="os-banner__title large">
+          <a href="{{ banner.link }}" target="_blank">{{ banner.title }}</a>
+        </h3>
         <p class="os-banner__text">
-          Kokhta-Mitarbi is a resort with the unique natural and climatic
-          conditions. This area attracts the visitors during all four seasons
-          and is a perfect place for family vacations, hiking, and skiing. The
-          Project itself includes the construction of international standard
-          hotels and residential apartments.
+          {{ banner.text }}
         </p>
       </div>
       <h5 class="os-banner__title small">

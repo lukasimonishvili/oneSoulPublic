@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { WorksService } from "../../angular-services/works/works.service";
 
 @Component({
   selector: "app-works-shared",
@@ -7,70 +8,17 @@ import { Component, OnInit, Input } from "@angular/core";
 })
 export class WorksComponent implements OnInit {
   @Input() theme: "dark" | "light";
-  private works: Array<any> = [
-    {
-      id: 1,
-      title: "Chai-khana website redesign and development",
-      resolution: "large",
-      image: "../../../assets/img/works-1.png"
-    },
-    {
-      id: 2,
-      title: "Birds of Prey",
-      resolution: "small",
-      image: "../../../assets/img/works-2.png"
-    },
-    {
-      id: 3,
-      title: "Birds of Prey",
-      resolution: "small",
-      image: "../../../assets/img/works-3.png"
-    },
-    {
-      id: 4,
-      title: "Birds of Prey",
-      resolution: "small",
-      image: "../../../assets/img/works-4.png"
-    },
-    {
-      id: 5,
-      title: "Birds of Prey",
-      resolution: "small",
-      image: "../../../assets/img/works-5.png"
-    },
-    {
-      id: 6,
-      title: "Birds of Prey",
-      resolution: "small",
-      image: "../../../assets/img/works-2.png"
-    },
-    {
-      id: 7,
-      title: "Chai-khana website redesign and development",
-      resolution: "large",
-      image: "../../../assets/img/works-1.png"
-    },
-    {
-      id: 8,
-      title: "Birds of Prey",
-      resolution: "small",
-      image: "../../../assets/img/works-3.png"
-    },
-    {
-      id: 9,
-      title: "Birds of Prey",
-      resolution: "small",
-      image: "../../../assets/img/works-4.png"
-    },
-    {
-      id: 10,
-      title: "Birds of Prey",
-      resolution: "small",
-      image: "../../../assets/img/works-5.png"
-    }
-  ];
+  private works: any = [];
 
-  constructor() {}
+  constructor(private worksService: WorksService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.fetchWorksData();
+  }
+
+  fetchWorksData() {
+    this.worksService.fetchWorksData().subscribe(response => {
+      this.works = response;
+    });
+  }
 }

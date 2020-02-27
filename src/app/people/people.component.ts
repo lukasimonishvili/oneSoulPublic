@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { PeopleService } from "../angular-services/people/people.service";
 
 @Component({
   selector: "app-people",
@@ -6,55 +7,17 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./people.component.scss"]
 })
 export class PeopleComponent implements OnInit {
-  private people: Array<any> = [
-    {
-      image: "../../assets/img/people-1.png",
-      fullName: "Beka Kvartskhava",
-      position: "Founder & Creative Director"
-    },
-    {
-      image: "../../assets/img/people-2.png",
-      fullName: "Gigi Murisudze",
-      position: "CEO"
-    },
-    {
-      image: "../../assets/img/people-3.png",
-      fullName: "Lisa Saliza",
-      position: "Client Support"
-    },
-    {
-      image: "../../assets/img/people-4.png",
-      fullName: "Beka Kvartskhava",
-      position: "Founder & Creative Director"
-    },
-    {
-      image: "../../assets/img/people-5.png",
-      fullName: "Gigi Murisudze",
-      position: "CEO"
-    },
-    {
-      image: "../../assets/img/people-6.png",
-      fullName: "Lisa Saliza",
-      position: "Client Support"
-    },
-    {
-      image: "../../assets/img/people-1.png",
-      fullName: "Beka Kvartskhava",
-      position: "Founder & Creative Director"
-    },
-    {
-      image: "../../assets/img/people-2.png",
-      fullName: "Gigi Murisudze",
-      position: "CEO"
-    },
-    {
-      image: "../../assets/img/people-3.png",
-      fullName: "Lisa Saliza",
-      position: "Client Support"
-    }
-  ];
+  private people: any = [];
 
-  constructor() {}
+  constructor(private peopleService: PeopleService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.fetchPeopleData();
+  }
+
+  fetchPeopleData() {
+    this.peopleService.fetchPeopleData().subscribe(response => {
+      this.people = response;
+    });
+  }
 }
