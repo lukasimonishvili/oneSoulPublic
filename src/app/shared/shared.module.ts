@@ -8,6 +8,7 @@ import { WorksComponent } from "./works/works.component";
 import { WorksWithComponent } from "./works-with/works-with.component";
 import { FooterComponent } from "./footer/footer.component";
 import { ServiceListComponent } from "./service-list/service-list.component";
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ServiceListComponent } from "./service-list/service-list.component";
     WorksComponent,
     WorksWithComponent,
     FooterComponent,
-    ServiceListComponent
+    ServiceListComponent,
+    ErrorComponent
   ],
   imports: [CommonModule, SharedRoutingModule],
   exports: [
@@ -25,7 +27,8 @@ import { ServiceListComponent } from "./service-list/service-list.component";
     WorksComponent,
     WorksWithComponent,
     ServiceListComponent,
-    FooterComponent
+    FooterComponent,
+    ErrorComponent
   ]
 })
 export class SharedModule {}

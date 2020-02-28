@@ -16,17 +16,6 @@ export class HeaderService {
   }
 
   sayHi() {
-    let headers = new HttpHeaders({
-      "Access-Control-Allow-Headers": "X-Requested-With"
-    });
-
-    let options = {
-      headers
-    };
-
-    let fd = new FormData();
-    fd.append("add", "true");
-    console.log(fd.getAll("add"));
     return this.http
       .post(this.url + "increaseHi", { add: true })
       .pipe(map(response => response));

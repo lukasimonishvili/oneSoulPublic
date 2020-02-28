@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ContactService } from "../angular-services/contact/contact.service";
+import { NotifierService } from "angular-notifier";
 
 @Component({
   selector: "app-contact",
@@ -31,7 +32,8 @@ export class ContactComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private contactService: ContactService
+    private contactService: ContactService,
+    private notifierService: NotifierService
   ) {}
 
   ngOnInit() {
@@ -82,7 +84,17 @@ export class ContactComponent implements OnInit {
       payload = { ...payload, services: this.services };
 
       this.contactService.sendMessage(payload).subscribe(response => {
-        console.log(response);
+        if (response) {
+          this.notifierService.notify(
+            "success",
+            "Your message sent. Thank you!"
+          );
+        } else {
+          this.notifierService.notify(
+            "success",
+            "Unexpected error. Please try again later"
+          );
+        }
       });
     }
   }

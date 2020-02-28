@@ -24,4 +24,10 @@ export class WorksService {
       .get(this.url + "single-work/" + id)
       .pipe(map(response => response));
   }
+
+  fetchWorksByCategoryId(id: string | number) {
+    return this.http
+      .post(this.url + "work-category", { category: id })
+      .pipe(map(response => response));
+  }
 }

@@ -25,7 +25,6 @@ export class WorksDetailedComponent implements OnInit {
       this.id = route["params"].id;
       this.worksService.fetchWorkById(this.id).subscribe(response => {
         this.project = response;
-        console.log(response);
       });
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     });

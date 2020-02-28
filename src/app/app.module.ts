@@ -13,6 +13,7 @@ import { WorksDetailedComponent } from "./works-detailed/works-detailed.componen
 import { PeopleComponent } from "./people/people.component";
 import { ServicesComponent } from "./services/services.component";
 import { ContactComponent } from "./contact/contact.component";
+import { NotifierModule } from "angular-notifier";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,15 @@ import { ContactComponent } from "./contact/contact.component";
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NotifierModule.withConfig({
+      position: {
+        vertical: {
+          position: "top",
+          distance: 12
+        }
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

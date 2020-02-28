@@ -2,8 +2,9 @@
   <div class="container">
     <h2 class="os-works__title">Works</h2>
     <ul class="os-works__list flex-space-btw">
-      <ng-container *ngFor="let work of works">
+      <ng-container *ngIf="!showErrorComponent">
         <li
+          *ngFor="let work of works"
           class="os-works__item {{ work.image.resolution }}"
           routerLink="/works/detailed/{{ work.id }}"
         >
@@ -15,6 +16,7 @@
           <p>{{ work.title }}</p>
         </li>
       </ng-container>
+      <app-error *ngIf="showErrorComponent"></app-error>
     </ul>
   </div>
 </section>

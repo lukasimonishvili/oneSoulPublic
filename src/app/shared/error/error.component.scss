@@ -1,0 +1,21 @@
+.os-error {
+  width: 100%;
+
+  & img {
+    display: block;
+    width: 40%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  h6 {
+    font-size: 4rem;
+    line-height: 6rem;
+    font-weight: bold;
+    text-align: center;
+
+    @media screen and (max-width: 350px) {
+      font-size: 3rem;
+    }
+  }
+}

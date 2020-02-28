@@ -20,7 +20,13 @@
             {{ feature }}
           </li>
         </ul>
-        <div class="os-services__button">{{ service.button }}</div>
+        <div
+          class="os-services__button"
+          [routerLink]="['/works']"
+          [queryParams]="{ category: service.id }"
+        >
+          {{ service.button }}
+        </div>
       </li>
     </ul>
   </div>
