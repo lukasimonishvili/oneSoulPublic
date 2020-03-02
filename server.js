@@ -11,6 +11,7 @@ app.all("*", (req, res) => {
 });
 
 app.set("port", port);
+
 const server = http.createServer(app);
 
 server.listen(port, () => {
