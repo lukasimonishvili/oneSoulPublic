@@ -1,5 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl
+} from "@angular/forms";
 import { ContactService } from "../angular-services/contact/contact.service";
 import { NotifierService } from "angular-notifier";
 
@@ -46,10 +51,30 @@ export class ContactComponent implements OnInit {
       this.slider = response["slider"];
       this.unselectedServices = response["services"];
       this.contact = response;
-      this.autoPlay = setInterval(() => {
-        this.next();
-      }, 3000);
+      this.setSwiperConfigs();
     });
+  }
+
+  setSwiperConfigs() {
+    // let script = document.getElementById("swiperScrpt");
+    // let code = `
+    // var swiper = new Swiper(".swiper-container", {
+    //   slidesPerView: 1,
+    //   spaceBetween: 0,
+    //   navigation: {
+    //     nextEl: ".swiper-button-next",
+    //     prevEl: ".swiper-button-prev"
+    //   },
+    //   loop: true,
+    //   autoplay: {
+    //     delay: 3000,
+    //     disableOnInteraction: false
+    //   }
+    // });
+    // `;
+    var killId: any = setTimeout(function() {
+      for (var i = killId; i > 0; i--) clearInterval(i);
+    }, 3000);
   }
 
   createContactForm() {
@@ -57,9 +82,13 @@ export class ContactComponent implements OnInit {
       projectName: ["", Validators.required],
       companyName: ["", Validators.required],
       fullName: ["", Validators.required],
-      email: ["", Validators.required],
+      email: ["", [Validators.required, this.mailValidator]],
       phone: ["", Validators.required]
     });
+  }
+
+  makeCall(phoneNumber) {
+    window.open(`tel:${phoneNumber}`);
   }
 
   onTabSelect(selected, service) {
@@ -72,6 +101,26 @@ export class ContactComponent implements OnInit {
     }
 
     this.services = services;
+    console.log(this.contactForm.controls.email);
+  }
+
+  mailValidator(control: FormControl) {
+    let mail = control.value.toString().split("@");
+    let result = null;
+
+    if (mail.length != 2) {
+      result = { validMail: false };
+    } else {
+      let afterAt = mail[1].split(".");
+      if (
+        afterAt.length != 2 ||
+        afterAt[0].length < 2 ||
+        afterAt[1].length < 2
+      ) {
+        result = { validMail: false };
+      }
+    }
+    return result;
   }
 
   onContactSubmit() {

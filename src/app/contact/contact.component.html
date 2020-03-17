@@ -118,7 +118,9 @@
         (swiperight)="prev()"
       >
         <h5 class="os-contact__slider__title">EXPLORE TBILISI</h5>
-        <div class="os-contact__slider__wrapper absolute flex">
+        <!-- OLD SLIDER  -->
+
+        <!-- <div class="os-contact__slider__wrapper absolute flex">
           <div
             class="os-contact__slider__slide"
             *ngFor="let slide of slider; let i = index"
@@ -128,7 +130,6 @@
               class="img"
               [ngStyle]="{ 'background-image': 'url(' + slide.image + ')' }"
             ></div>
-            <!-- <img src="{{ slide.image }}" alt="" /> -->
             <span> // {{ slide.text }}</span>
           </div>
           <div
@@ -141,6 +142,24 @@
             class="os-contact__slider__arrow absolute right"
             (click)="next()"
           ></div>
+        </div> -->
+
+        <!-- SWIPER SLIDER  -->
+
+        <div class="os-contact__slider__wrapper absolute swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" *ngFor="let slide of slider">
+              <div
+                class="os-contact__slider__slide__img"
+                [ngStyle]="{ 'background-image': 'url(' + slide.image + ')' }"
+              ></div>
+              <span class="os-contact__slider__slide__span">
+                // {{ slide.text }}</span
+              >
+            </div>
+          </div>
+          <div class="swiper-button-next swiper-button-white"></div>
+          <div class="swiper-button-prev swiper-button-white"></div>
         </div>
       </div>
     </div>
@@ -162,9 +181,18 @@
         <div class="os-contact__info__wrapper phone">
           <span class="os-contact__text bold">Phone</span>
           <span class="os-contact__text"
-            >{{ contact.phone.landline }} (landline)<br />
-            {{ contact.phone.mobile }} (mobile phone) <br />
-            {{ contact.phone.fax }} (fax)</span
+            ><span (click)="makeCall(contact.phone.landline)"
+              >{{ contact.phone.landline }}
+            </span>
+            (landline)<br />
+            <span (click)="makeCall(contact.phone.mobile)"
+              >{{ contact.phone.mobile }}
+            </span>
+            (mobile phone) <br />
+            <span (click)="makeCall(contact.phone.fax)"
+              >{{ contact.phone.fax }}
+            </span>
+            (fax)</span
           >
         </div>
       </div>

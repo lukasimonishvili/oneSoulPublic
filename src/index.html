@@ -7,8 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css" />
   </head>
   <body>
     <app-root></app-root>
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+    <script id="swiperScrpt">
+      window.addEventListener("load", () => {
+        var swiper = new Swiper(".swiper-container", {
+          slidesPerView: 1,
+          spaceBetween: 0,
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+          },
+          loop: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+          }
+        });
+        setInterval(() => {
+          swiper.update();
+        }, 1000);
+      });
+    </script>
   </body>
 </html>
