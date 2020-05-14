@@ -3,7 +3,7 @@ import {
   FormBuilder,
   FormGroup,
   Validators,
-  FormControl
+  FormControl,
 } from "@angular/forms";
 import { ContactService } from "../angular-services/contact/contact.service";
 import { NotifierService } from "angular-notifier";
@@ -11,7 +11,7 @@ import { NotifierService } from "angular-notifier";
 @Component({
   selector: "app-contact",
   templateUrl: "./contact.component.html",
-  styleUrls: ["./contact.component.scss"]
+  styleUrls: ["./contact.component.scss"],
 })
 export class ContactComponent implements OnInit {
   contactForm: FormGroup;
@@ -22,13 +22,13 @@ export class ContactComponent implements OnInit {
     address: {
       address: "",
       city: "",
-      country: ""
+      country: "",
     },
     phone: {
       landline: "",
       mobile: "",
-      fax: ""
-    }
+      fax: "",
+    },
   };
   unselectedServices: Array<string> = [];
   activeSlideIndex: number = 0;
@@ -47,7 +47,7 @@ export class ContactComponent implements OnInit {
   }
 
   fetchContactData() {
-    this.contactService.fetchContactData().subscribe(response => {
+    this.contactService.fetchContactData().subscribe((response) => {
       this.slider = response["slider"];
       this.unselectedServices = response["services"];
       this.contact = response;
@@ -72,7 +72,7 @@ export class ContactComponent implements OnInit {
     //   }
     // });
     // `;
-    var killId: any = setTimeout(function() {
+    var killId: any = setTimeout(function () {
       for (var i = killId; i > 0; i--) clearInterval(i);
     }, 3000);
   }
@@ -83,7 +83,7 @@ export class ContactComponent implements OnInit {
       companyName: ["", Validators.required],
       fullName: ["", Validators.required],
       email: ["", [Validators.required, this.mailValidator]],
-      phone: ["", Validators.required]
+      phone: ["", Validators.required],
     });
   }
 
@@ -101,7 +101,6 @@ export class ContactComponent implements OnInit {
     }
 
     this.services = services;
-    console.log(this.contactForm.controls.email);
   }
 
   mailValidator(control: FormControl) {
@@ -132,7 +131,7 @@ export class ContactComponent implements OnInit {
       let payload = this.contactForm.value;
       payload = { ...payload, services: this.services };
 
-      this.contactService.sendMessage(payload).subscribe(response => {
+      this.contactService.sendMessage(payload).subscribe((response) => {
         if (response) {
           this.notifierService.notify(
             "success",
