@@ -129,8 +129,8 @@ export class ContactComponent implements OnInit {
         }
 
         this.services = [];
-        this.contactForm.reset();
         (document.getElementById("phone") as HTMLInputElement).value = "";
+        this.contactForm.reset();
         console.log(this.services);
       });
     }
