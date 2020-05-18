@@ -96,7 +96,7 @@ export class ContactComponent implements OnInit {
     } else {
       let afterAt = mail[1].split(".");
       if (
-        afterAt.length != 2 ||
+        afterAt.length < 2 ||
         afterAt[0].length < 2 ||
         afterAt[1].length < 2
       ) {
@@ -127,6 +127,11 @@ export class ContactComponent implements OnInit {
             "Unexpected error. Please try again later"
           );
         }
+
+        this.services = [];
+        this.contactForm.reset();
+        (document.getElementById("phone") as HTMLInputElement).value = "";
+        console.log(this.services);
       });
     }
   }

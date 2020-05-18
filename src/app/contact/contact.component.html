@@ -76,20 +76,6 @@
           />
         </div>
         <div class="os-contact__form__wrapper">
-          <label for="email" class="os-contact__label">Your Email</label>
-          <input
-            type="text"
-            formControlName="email"
-            class="os-contact__input"
-            id="email"
-            [ngClass]="{
-              'os-contact__input__error':
-                contactForm.controls.email.touched &&
-                contactForm.controls.email.errors
-            }"
-          />
-        </div>
-        <div class="os-contact__form__wrapper">
           <label for="phone" class="os-contact__label">Phone</label>
           <input
             type="number"
@@ -100,6 +86,20 @@
               'os-contact__input__error':
                 contactForm.controls.phone.touched &&
                 contactForm.controls.phone.errors
+            }"
+          />
+        </div>
+        <div class="os-contact__form__wrapper">
+          <label for="email" class="os-contact__label">Your Email</label>
+          <input
+            type="text"
+            formControlName="email"
+            class="os-contact__input"
+            id="email"
+            [ngClass]="{
+              'os-contact__input__error':
+                contactForm.controls.email.touched &&
+                contactForm.controls.email.errors
             }"
           />
         </div>
