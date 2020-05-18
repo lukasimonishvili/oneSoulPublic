@@ -5,14 +5,15 @@ import { WorksService } from "../angular-services/works/works.service";
 @Component({
   selector: "app-works-detailed",
   templateUrl: "./works-detailed.component.html",
-  styleUrls: ["./works-detailed.component.scss"]
+  styleUrls: ["./works-detailed.component.scss"],
 })
 export class WorksDetailedComponent implements OnInit {
   private id: string;
   private project: any = {
     next: 0,
     description: "",
-    data: []
+    data: [],
+    category: [],
   };
 
   constructor(
@@ -21,9 +22,9 @@ export class WorksDetailedComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.activatedRoute.paramMap.subscribe(route => {
+    this.activatedRoute.paramMap.subscribe((route) => {
       this.id = route["params"].id;
-      this.worksService.fetchWorkById(this.id).subscribe(response => {
+      this.worksService.fetchWorkById(this.id).subscribe((response) => {
         this.project = response;
       });
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });

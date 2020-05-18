@@ -56,22 +56,6 @@ export class ContactComponent implements OnInit {
   }
 
   setSwiperConfigs() {
-    // let script = document.getElementById("swiperScrpt");
-    // let code = `
-    // var swiper = new Swiper(".swiper-container", {
-    //   slidesPerView: 1,
-    //   spaceBetween: 0,
-    //   navigation: {
-    //     nextEl: ".swiper-button-next",
-    //     prevEl: ".swiper-button-prev"
-    //   },
-    //   loop: true,
-    //   autoplay: {
-    //     delay: 3000,
-    //     disableOnInteraction: false
-    //   }
-    // });
-    // `;
     var killId: any = setTimeout(function () {
       for (var i = killId; i > 0; i--) clearInterval(i);
     }, 3000);

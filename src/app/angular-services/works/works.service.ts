@@ -4,7 +4,7 @@ import { map } from "rxjs/operators";
 import { environment } from "../../../environments/environment";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class WorksService {
   private url = environment.base_url;
@@ -12,22 +12,24 @@ export class WorksService {
   constructor(private http: HttpClient) {}
 
   fetchWorksWitchData() {
-    return this.http.get(this.url + "partners").pipe(map(response => response));
+    return this.http
+      .get(this.url + "partners")
+      .pipe(map((response) => response));
   }
 
   fetchWorksData() {
-    return this.http.get(this.url + "work").pipe(map(response => response));
+    return this.http.get(this.url + "work").pipe(map((response) => response));
   }
 
   fetchWorkById(id: string) {
     return this.http
       .get(this.url + "single-work/" + id)
-      .pipe(map(response => response));
+      .pipe(map((response) => response));
   }
 
   fetchWorksByCategoryId(id: string | number) {
     return this.http
       .post(this.url + "work-category", { category: id })
-      .pipe(map(response => response));
+      .pipe(map((response) => response));
   }
 }

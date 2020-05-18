@@ -8,7 +8,10 @@
         </p>
       </div>
       <h5 class="os-works__title small">
-        Brand Identity, Industrial/Product Design
+        <ng-container *ngFor="let category of project.category; let i = index">
+          <ng-container *ngIf="i">, </ng-container>
+          {{ category }}
+        </ng-container>
       </h5>
     </div>
     <ul class="os-works__list flex-space-btw">

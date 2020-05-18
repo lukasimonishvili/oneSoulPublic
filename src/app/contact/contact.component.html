@@ -182,18 +182,14 @@
           <span class="os-contact__text bold">Phone</span>
           <span class="os-contact__text"
             ><span (click)="makeCall(contact.phone.landline)"
-              >{{ contact.phone.landline }}
+              >{{ contact.phone.whatsApp }}
             </span>
-            (landline)<br />
+            (whatsApp)<br />
             <span (click)="makeCall(contact.phone.mobile)"
               >{{ contact.phone.mobile }}
             </span>
-            (mobile phone) <br />
-            <span (click)="makeCall(contact.phone.fax)"
-              >{{ contact.phone.fax }}
-            </span>
-            (fax)</span
-          >
+            (mobile phone)
+          </span>
         </div>
       </div>
       <img

@@ -4,14 +4,14 @@ import { BannerService } from "../../angular-services/banner/banner.service";
 @Component({
   selector: "app-banner",
   templateUrl: "./banner.component.html",
-  styleUrls: ["./banner.component.scss"]
+  styleUrls: ["./banner.component.scss"],
 })
 export class BannerComponent implements OnInit {
   private banner: any = {
     image: "",
     text: "",
     link: "",
-    title: ""
+    title: "",
   };
 
   constructor(private bannerService: BannerService) {}
@@ -21,7 +21,7 @@ export class BannerComponent implements OnInit {
   }
 
   fetchBannerdata() {
-    this.bannerService.fettchBannerData().subscribe(response => {
+    this.bannerService.fettchBannerData().subscribe((response) => {
       this.banner = response;
     });
   }
