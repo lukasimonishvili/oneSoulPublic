@@ -12,6 +12,7 @@ export class BannerComponent implements OnInit {
     text: "",
     link: "",
     title: "",
+    banner_id: "",
   };
 
   constructor(private bannerService: BannerService) {}
@@ -23,6 +24,7 @@ export class BannerComponent implements OnInit {
   fetchBannerdata() {
     this.bannerService.fettchBannerData().subscribe((response) => {
       this.banner = response;
+      console.log(response);
     });
   }
 }

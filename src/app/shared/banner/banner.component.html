@@ -7,7 +7,9 @@
     <div class="os-banner__content flex-space-btw">
       <div class="os-banner__wrapper">
         <h3 class="os-banner__title large">
-          <a href="{{ banner.link }}">{{ banner.title }}</a>
+          <span routerLink="{{ '/works/detailed/' + banner.banner_id }}">{{
+            banner.title
+          }}</span>
         </h3>
         <p class="os-banner__text">
           {{ banner.text }}
