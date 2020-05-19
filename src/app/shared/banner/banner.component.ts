@@ -24,7 +24,6 @@ export class BannerComponent implements OnInit {
   fetchBannerdata() {
     this.bannerService.fettchBannerData().subscribe((response) => {
       this.banner = response;
-      console.log(response);
     });
   }
 }
