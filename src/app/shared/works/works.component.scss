@@ -26,6 +26,7 @@
 
     &__item {
       padding-bottom: 30px;
+      cursor: pointer;
 
       &.large {
         width: calc(((100% / 3) * 2) - 7px);
@@ -45,7 +46,7 @@
       }
 
       & p {
-        color: #707070;
+        color: black;
         font-weight: bold;
         font-size: 2.4rem;
         line-height: 2.9rem;
